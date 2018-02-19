@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Find Music</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css'/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>
+    <!-- Custom Theme files -->
+    <!--webfont-->
+    <link href="{% static 'fonts/glyphicons-halflings-regular.eot' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static 'fonts/glyphicons-halflings-regular.ttf' %}" rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/menu_jquery.js' %}"></script>
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <h1><a href="{% url 'music:index' %}">Find Music</a></h1>
+        </div>
+        <div class="top_right">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="price">
+    <div class="container">
+        {% for info in reponse_list %}
+            <div class="col-md-4 span4">
+                <div class="plan-options">
+                    <div class="plan-price">
+                        <p class="music-name">{{ info.name }}</p>
+                        {#                        <strong>$20.99</strong>/mo#}
+                    </div>
+                    <ul class="plan-details">
+                        <li>演唱者：{{ info.singer }}</li>
+                        <li>{{ info.came_from }}</li>
+                        <li>大小：{{ info.size }}</li>
+                        <li>语种：{{ info.language }}</li>
+                        <li>发行时间：{{ info.released_data }}</li>
+                    </ul>
+                    <a class="btn_4" href="{{ info.url }}" target="_blank">百度云：{{ info.password }}</a>
+                    <!-- 1. Define some markup -->
+                    <button class="btn" data-clipboard-text="{{ info.password }}">Copy</button>
+                    <!-- 2. Include library -->
+                    <script src="{% static 'js/clipboard.min.js' %}"></script>
+                    <!-- 3. Instantiate clipboard by passing a string selector -->
+                    <script>
+                        var clipboard = new Clipboard('.btn');
+
+                        clipboard.on('success', function (e) {
+                            console.log(e);
+                        });
+
+                        clipboard.on('error', function (e) {
+                            console.log(e);
+                        });
+                    </script>
+                </div>
+            </div>
+            {#            <div class="panel panel-default">#}
+            {#                <div class="panel-heading">{{ info.name }}</div>#}
+            {#                <table class="table">#}
+            {#                    <th>{{ info.singer }}</th>#}
+            {#                    <th><a href="{{ info.url }}">百度云：</a>{{ info.password }}</th>#}
+            {#                    <th>{{ info.came_from }}</th>#}
+            {#                    <tr>#}
+            {#                        <td>{{ info.came_from }}</td>#}
+            {#                    </tr>#}
+            {#                    <tr>#}
+            {#                        <td><a href="{{ info.url }}">百度云：</a>{{ info.password }}</td>#}
+            {#                    </tr>#}
+            {#                </table>#}
+            {#            </div>#}
+        {% empty %}
+            <div class="no-post">
+                没有搜索到符合条件的结果
+            </div>
+        {% endfor %}
+
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="grid_2">
+    <div class="container">
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="grid_3">
+    <p>Copyright © 2018 Littlecowherd. All Rights Reserved.</p>
+</div>
+</body>
+</html>		

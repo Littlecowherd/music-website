@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Find Music</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css'/>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css'/>
+    <!-- Custom Theme files -->
+    <!--webfont-->
+    <link href="{% static 'fonts/glyphicons-halflings-regular.eot' %}" rel='stylesheet' type='text/css'>
+    <link href="{% static 'fonts/glyphicons-halflings-regular.ttf' %}" rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/menu_jquery.js' %}"></script>
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <h1><a href="{% url 'music:index' %}">Find Music</a></h1>
+        </div>
+        <div class="top_right">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{#<div class="price">#}
+{#    <div class="container">#}
+{#        <div class="clearfix"></div>#}
+{#    </div>#}
+{#</div>#}
+<div class="container">
+    <div class="single_box1">
+        <div class="col-sm-5 single_left">
+            <img src="{% static 'images/images.jpg' %}" class="img-responsive" alt=""/>
+        </div>
+        <div class="col-sm-7 col_6">
+            <h3>你好，远方的来客</h3>
+            <br>
+            <p class="movie_option"><strong>你来的太突然， </strong></p>
+            <p class="movie_option"><strong>我还没想好说啥呢！ </strong></p>
+            <br>
+            <p class="movie_option"><strong>这样吧！ </strong></p>
+            <p class="movie_option"><strong>如果你有什么好的想法， </strong></p>
+            <p class="movie_option"><strong>请联系我： </strong></p>
+            <p class="movie_option"><strong>littlecowherd@protonmail.com </strong></p>
+
+{#            <ul class="size">#}
+{##}
+{#            </ul>#}
+{#            <a class="btn_3" href="#">Download this Photo</a>#}
+{#            <p class="movie_option"><strong>Photo : </strong>5487695478</p>#}
+{#            <p class="movie_option"><strong>Upload Date : </strong>July 02, 2015</p>#}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="grid_2">
+        <div class="container">
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    {#<div class="grid_3">#}
+    {#    <p>Copyright © 2018 Littlecowherd. All Rights Reserved.</p>#}
+    {#</div>#}
+</div>
+</body>
+</html>		
